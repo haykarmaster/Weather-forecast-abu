@@ -8,6 +8,10 @@ function displayWeather() {
     const city = searchInput.value;
     console.log("clicked");
     console.log(city);
+    if(typeof(city)!="string"){
+        tempElement.innerHTML="City name must be string only";
+        return;
+    }
     weatherContainer.style.display = "block"; // Make the weather div visible
 
     // API request URL
@@ -31,3 +35,11 @@ function displayWeather() {
 
 // Add event listener to trigger the function when the button is clicked
 searchBtn.addEventListener("click", displayWeather);
+searchInput.addEventListener("keyup", function (event) {
+    // Checking if key pressed is ENTER or not
+    // if the key pressed is ENTER
+    // click listener on button is called
+    if (event.keyCode == 13) {
+        searchBtn.click();
+    }
+});
