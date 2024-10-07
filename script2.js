@@ -8,9 +8,9 @@ function displayWeather() {
     const city = searchInput.value;
     console.log("clicked");
     console.log(city);
-    if(typeof(city)!="string"){
+    if(typeof city!== "string"){
         tempElement.innerHTML="City name must be string only";
-        return;
+        return "City name must be string only";
     }
     weatherContainer.style.display = "block"; // Make the weather div visible
 
