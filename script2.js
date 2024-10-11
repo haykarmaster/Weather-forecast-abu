@@ -9,7 +9,7 @@ function displayWeather() {
     console.log("clicked");
     console.log(city);
     let flag = true;
-    if(typeof city!== "string"){
+    if(!isNaN(city)){
         tempElement.innerHTML = "City name must be string only";
         flag = false;
     }
