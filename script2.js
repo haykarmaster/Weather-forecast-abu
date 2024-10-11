@@ -8,9 +8,10 @@ function displayWeather() {
     const city = searchInput.value;
     console.log("clicked");
     console.log(city);
+    let flag = true;
     if(typeof city!== "string"){
-        tempElement.innerHTML="City name must be string only";
-        return "City name must be string only";
+        tempElement.innerHTML = "City name must be string only";
+        flag = false;
     }
     weatherContainer.style.display = "block"; // Make the weather div visible
 
@@ -18,6 +19,7 @@ function displayWeather() {
     const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
 
     // Fetching weather data
+    if(flag){
     fetch(api)
         .then((response) => response.json()) // Convert the response to JSON
         .then((data) => {
@@ -31,6 +33,7 @@ function displayWeather() {
             console.error("Error fetching data:", error);
             tempElement.innerHTML = "Error fetching data"; // Display error message in case of failure
         });
+    }
 }
 
 // Add event listener to trigger the function when the button is clicked
